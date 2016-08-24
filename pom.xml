@@ -13,7 +13,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <aspectj.version>1.8.7</aspectj.version>
+        <aspectj.plugin.version>1.8</aspectj.plugin.version>
+        <aspectj.runtime.version>1.8.7</aspectj.runtime.version>
     </properties>
 
     <build>
@@ -35,7 +36,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.8</version>
+                <version>${aspectj.plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -44,19 +45,11 @@
                         </goals>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjrt</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <complianceLevel>${maven.compiler.source}</complianceLevel>
-                    <weaveMainSourceFolder>true</weaveMainSourceFolder>
                 </configuration>
             </plugin>
 
@@ -70,7 +63,7 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>${aspectj.version}</version>
+            <version>${aspectj.runtime.version}</version>
         </dependency>
 
         <!-- Testing -->
